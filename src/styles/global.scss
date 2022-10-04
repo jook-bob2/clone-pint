@@ -1,0 +1,17 @@
+@import './mixin';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+	--text-color: #263343;
+	--backgound-color: #fdfdfd;
+	--accent-color: #d49466;
+	--yellow-color: #ffb000;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.clear {
+	clear: both;
+}
