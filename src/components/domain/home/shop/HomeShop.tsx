@@ -1,13 +1,15 @@
 import React from 'react'
+import styles from '@styles/home/Home.module.scss'
 
-export default function HomeShop() {
+interface Props {
+    shopRef: React.LegacyRef<HTMLElement> | undefined
+}
+
+export default function HomeShop({ shopRef }: Props) {
     return (
-        <article>
-            <div>
-                <strong>shop</strong>
-            </div>
-            <div>
-                <span>내용들</span>
+        <article ref={shopRef}>
+            <div className={styles.contents}>
+                <strong>Shop</strong>
             </div>
         </article>
     )

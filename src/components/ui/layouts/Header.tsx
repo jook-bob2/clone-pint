@@ -61,7 +61,7 @@ const ButtonView = styled.div`
 
 export default function Header() {
     return (
-        <Container className={styles.header}>
+        <Container className={styles.header} id="header">
             <Content>
                 <Link to="/">
                     <LogoView>

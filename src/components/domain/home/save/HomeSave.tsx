@@ -1,13 +1,15 @@
 import React from 'react'
+import styles from '@styles/home/Home.module.scss'
 
-export default function HomeSave() {
+interface Props {
+    saveRef: React.LegacyRef<HTMLElement> | undefined
+}
+
+export default function HomeSave({ saveRef }: Props) {
     return (
-        <article>
-            <div>
-                <strong>save</strong>
-            </div>
-            <div>
-                <span>내용들</span>
+        <article ref={saveRef}>
+            <div className={styles.contents}>
+                <strong>Save</strong>
             </div>
         </article>
     )

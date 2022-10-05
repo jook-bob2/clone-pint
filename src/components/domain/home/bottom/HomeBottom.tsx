@@ -1,13 +1,15 @@
 import React from 'react'
+import styles from '@styles/home/Home.module.scss'
 
-export default function HomeBottom() {
+interface Props {
+    bottomRef: React.LegacyRef<HTMLElement> | undefined
+}
+
+export default function HomeBottom({ bottomRef }: Props) {
     return (
-        <article>
-            <div>
-                <strong>bottom</strong>
-            </div>
-            <div>
-                <span>내용들</span>
+        <article ref={bottomRef}>
+            <div className={styles.contents}>
+                <strong>Bottom</strong>
             </div>
         </article>
     )
