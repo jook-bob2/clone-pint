@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { DirectionType, ScrollState } from './types/useScroll.type'
 import debounce from 'lodash/debounce'
 
-const delay = 25
+const delay = 200
 
 export default function useScroll() {
     const [state, setState] = useState<ScrollState>({

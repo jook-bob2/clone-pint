@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    .wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 70vh;
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+
+        .contents {
+            margin: 8px;
+            border-radius: 16px;
+            img {
+                border-radius: 14px;
+            }
+        }
+
+        .text {
+            position: absolute;
+            top: 310px;
+            text-align: center;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+            h1 {
+                font-size: 60px;
+                font-weight: 600;
+                left: 0;
+                color: rgb(194, 139, 0);
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                transform: translateY(-40px);
+                opacity: 1;
+            }
+        }
+    }
+    
+    .page {
+        position: absolute;
+        top: 380px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                margin: 8px;
+                cursor: pointer;
+                list-style: none;
+                list-style-type: none;
+                span {
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 8px;
+                    background-color: rgb(225, 225, 225);
+                }
+
+                .active {
+                    background-color: rgb(194, 139, 0);
+                }
+            }
+        }
+    }
+}

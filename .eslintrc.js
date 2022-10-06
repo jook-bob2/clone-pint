@@ -49,5 +49,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 0,
         'jsx-a11y/alt-text': 0,
         'global-require': 0,
+        'react/no-array-index-key': 0,
     },
 }

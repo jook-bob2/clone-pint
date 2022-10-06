@@ -36,7 +36,7 @@ export default function Home() {
             if (scrollY > 0 && scrollY < topHeight) {
                 scrollTo(0)
             } else if (scrollY > topHeight && scrollY < searchHeight) {
-                scrollTo(topHeight)
+                scrollTo(0)
             } else if (scrollY > searchHeight && scrollY < saveHeight) {
                 scrollTo(searchHeight)
             } else if (scrollY > saveHeight && scrollY < shopHeight) {
