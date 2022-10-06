@@ -10,6 +10,17 @@
 	}
 }
 
+@keyframes title-ani-text {
+    0% {
+		transform: translateX(0%);
+        opacity: 0;
+	}
+	100% {
+		transform: translateX(-80%);
+        opacity: 1;
+	}
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -28,26 +39,234 @@
         animation: slide-ani-text 1s alternate forwards;
         .contents {
             position: relative;
-		    flex: 0 0 100%;
-            top: 0;
-			left: 0;
             width: 100%;
-            transition: transform 1s;
-            .top {
-                height: calc(14vh + 140px);
+            height: 100%;
+            // .top {
+            //     height: calc(14vh + 140px);
+            //     width: 100%;
+            //     justify-content: flex-end;
+            //     align-items: center;
+            //     flex-direction: column;
+            //     margin: 0;
+            //     display: flex;
+            //     -webkit-tap-highlight-color: transparent;
+            //     text-decoration: none;
+            //     .next {
+            //         margin: 2px;
+            //         font-size: 60px;
+            //         font-weight: 600;
+            //         text-align: center;
+            //     }
+            // }
+        }
+        .top {
+            height: calc(14vh + 140px);
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            margin-top: 0;
+            display: flex;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            .main_title {
+                position: absolute;
+                z-index: 1;
+                margin: 2px;
+                font-size: 60px;
+                font-weight: 600;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                text-align: center;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+                text-decoration: none;
+                display: block;
+            }
+        }
+        .home_idea_text {
+            height: 60px;
+            width: 65%;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin-top: 48px;
+            display: flex;
+            flex-direction: row;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            p {
+                font-size: 60px;
+                font-weight: 600;
+                position: absolute;
+                text-align: center;
                 width: 100%;
-                justify-content: flex-end;
+                left: 0px;
+                color: rgb(194, 139, 0);
+                margin: 0px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                z-index: 1;
+                transition: all 700ms ease 0s;
+                
+            }
+            .none_active {
+                animation: .5s linear 1s infinite alternate slidein;
+                transform: translateY(-80%);
+                opacity: 0;
+            }
+            .active {
+                animation: .5s linear 1s infinite alternate slidein;
+                transform: translateY(0%);
+                opacity: 1;
+            }
+        }
+        .idea_scroller {
+            z-index: 1;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            display: block;
+            ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                list-style-type: disc;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                // padding-inline-start: 40px;
+                li {
+                    list-style-type: none;
+                    list-style: none;
+                    padding: 0;
+                    display: list-item;
+                    text-align: center;
+                    button {
+                        display: inline-block;
+                        padding: 5px;
+                        height: 10px;
+                        border-radius: 50px;
+                        margin: 6px;
+                        outline: none;
+                        border-style: none;
+                    }
+                }
+            }
+        }
+        .image_area {
+            height: 70vh;
+            box-sizing: border-box;
+            left: var(--space-0);
+            bottom: var(--space-0);
+            right: var(--space-0);
+            position: absolute;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            display: block;
+            .wrap {
                 align-items: center;
                 flex-direction: column;
-                margin: 0;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 0;
+                margin-top: 0;
                 display: flex;
                 -webkit-tap-highlight-color: transparent;
                 text-decoration: none;
-                .next {
-                    margin: 2px;
-                    font-size: 60px;
-                    font-weight: 600;
-                    text-align: center;
+                .contents {
+                    width: 1750px;
+                    height: 100%;
+                    box-sizing: border-box;
+                    position: relative;
+                    margin-top: 24px;
+                    -webkit-tap-highlight-color: transparent;
+                    text-decoration: none;
+                    display: block;
+                    .flex {
+                        display: flex;
+                        width: 1750px;
+                        position: absolute;
+                        top: 20%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        left: auto;
+                        right: auto;
+                        -webkit-tap-highlight-color: transparent;
+                        text-decoration: none;
+                        .calc_width {
+                            width: calc(3 / var(--g-ncols) * 100%);
+                            -webkit-tap-highlight-color: transparent;
+                            text-decoration: none;
+                            display: block;
+                            .home_pins_container {
+                                margin-top: 0px;
+                                box-sizing: border-box;
+                                -webkit-tap-highlight-color: transparent;
+                                text-decoration: none;
+                                // display: block;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                                align-content: space-between;
+                                justify-content: space-between;
+                                align-items: baseline;
+                                .all_pins {
+                                    transform: translateY(-80px);
+                                    z-index: 0;
+                                    overflow: visible;
+                                    object-fit: cover;
+                                    .home_pin {
+                                        width: 236px;
+                                        height: 350px;
+                                        margin-right: 8px;
+                                        margin-left: 8px;
+                                        border-radius: 16px;
+                                        box-sizing: border-box;
+                                        overflow: hidden;
+                                        margin-bottom: 16px;
+                                        margin-top: 16px;
+                                        display: block;
+                                        -webkit-tap-highlight-color: transparent;
+                                        text-decoration: none;
+                                        .box {
+                                            height: 100%;
+                                            box-sizing: border-box;
+                                            position: relative;
+                                            -webkit-tap-highlight-color: transparent;
+                                            text-decoration: none;
+                                            display: block;
+                                            .img {
+                                                background-color: transparent;
+                                                position: relative;
+                                                background-size: cover;
+                                                background-position: 50%;
+                                                background-repeat: no-repeat;
+                                                height: 100%;
+                                                width: 100%;
+                                                -webkit-tap-highlight-color: transparent;
+                                                text-decoration: none;
+                                                display: block;
+                                            }
+                                        }
+                                    }
+                                }
+                                .none_active {
+                                    animation: .5s linear 1s infinite alternate slidein;
+                                    transform: translateY(-80%);
+                                    opacity: 0;
+                                }
+                                .active {
+                                    animation: .5s linear 1s infinite alternate slidein;
+                                    transform: translateY(0%);
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

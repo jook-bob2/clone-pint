@@ -20,12 +20,12 @@ export default function Home() {
         if (scrollY && !loading) {
             handleMoveScroll()
         }
-    }, [scrollY, direction])
+    }, [scrollY, loading])
 
     function handleMoveScroll() {
         setLoading(true)
         const headerHeight = Number(document.getElementById('header')?.offsetHeight)
-        const offset = 10
+        const offset = 0
         const topHeight = headerHeight
         const searchHeight = topHeight + Number(topRef.current?.offsetHeight)
         const saveHeight = searchHeight + Number(searchRef.current?.offsetHeight)
