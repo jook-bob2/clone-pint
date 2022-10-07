@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@styles/home/Home.module.scss'
 
 interface Props {
-    shopRef: React.LegacyRef<HTMLElement> | undefined
+    shopRef: React.RefObject<HTMLElement> | undefined
 }
 
 export default function HomeShop({ shopRef }: Props) {

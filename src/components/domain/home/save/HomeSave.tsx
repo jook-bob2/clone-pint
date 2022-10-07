@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@styles/home/Home.module.scss'
 
 interface Props {
-    saveRef: React.LegacyRef<HTMLElement> | undefined
+    saveRef: React.RefObject<HTMLElement> | undefined
 }
 
 export default function HomeSave({ saveRef }: Props) {

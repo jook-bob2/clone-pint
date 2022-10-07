@@ -52,5 +52,6 @@ module.exports = {
         'react/no-array-index-key': 0,
         'react/self-closing-comp': 0,
         'jsx-a11y/control-has-associated-label': 0,
+        'no-plusplus': 0,
     },
 }

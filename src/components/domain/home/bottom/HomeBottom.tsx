@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@styles/home/Home.module.scss'
 
 interface Props {
-    bottomRef: React.LegacyRef<HTMLElement> | undefined
+    bottomRef: React.RefObject<HTMLElement> | undefined
 }
 
 export default function HomeBottom({ bottomRef }: Props) {

@@ -7,27 +7,45 @@ import image3 from '@/assets/images/3.jpg'
 import image4 from '@/assets/images/4.jpg'
 import image5 from '@/assets/images/5.jpg'
 import image6 from '@/assets/images/6.jpg'
+import { ReactComponent as ArrowDown } from '@/assets/images/arrow_down.svg'
+import { ReactComponent as ArrowDownSmall } from '@/assets/images/arrow_down_small.svg'
 import { HomeTopItemType } from './HomeTop.types'
+import styled from 'styled-components'
 
 interface Props {
-    topRef: React.LegacyRef<HTMLElement> | undefined
+    topRef: React.RefObject<HTMLElement> | undefined
 }
 
 let interval: NodeJS.Timer
 
 const COLORS = ['rgb(97, 140, 123)', 'rgb(194, 139, 0)', 'rgb(0, 118, 211)', 'rgb(64, 122, 87)']
-
-const imageList = [image1, image2, image3, image4, image5, image6, image6]
+const imageList = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image6,
+    image6,
+    image1,
+    image2,
+    image3,
+    image4,
+    image4,
+    image3,
+]
+const imageList2 = imageList.sort(() => Math.random() - 0.5)
 const itemList = [
     {
         index: 1,
-        images: imageList.sort(() => Math.random() - 0.5),
+        images: imageList,
         title: '저녁 식사 메뉴 아이디어를 찾아보세요',
         active: true,
     },
     {
         index: 2,
-        images: imageList,
+        images: imageList2,
         title: '집안 꾸미기 아이디어를 찾아보세요',
         active: false,
     },
@@ -45,6 +63,43 @@ const itemList = [
     },
 ]
 const DELAY = 3000
+
+const ImageArea = styled.div`
+    transform: ${({ index }: { index: number }) => {
+        let vh = 0
+        let idx = index
+        const max = 60
+        const min = 30
+        const margin = 36
+        const itemWidth = 236 + margin
+        const maxIdx = Math.floor(window.innerWidth / itemWidth) - 1
+        const firstIdx = 0
+        const secondIdx = firstIdx + 1
+        const thirdIdx = secondIdx + 1
+        const lastSecondIdx = maxIdx - 1
+        const lastThirdIdx = lastSecondIdx - 1
+        const middleIdx = Math.floor(maxIdx / 2)
+
+        for (let i = 0; i < maxIdx + 1; i++) {
+            if (index % (maxIdx + i + 1) === 0) {
+                idx = i
+            }
+        }
+
+        if (idx === firstIdx || idx === maxIdx) {
+            vh = max
+        } else if (secondIdx === idx || lastSecondIdx === idx) {
+            vh = max - 10
+        } else if (thirdIdx === idx || lastThirdIdx === idx) {
+            vh = max - 20
+        } else if (middleIdx === idx) {
+            vh = min
+        }
+
+        return `translateY(calc(100% - ${vh}vh))`
+    }};
+`
+
 export default function HomeTop({ topRef }: Props) {
     const [items, setItems] = useState<HomeTopItemType[]>([...itemList])
 
@@ -93,6 +148,13 @@ export default function HomeTop({ topRef }: Props) {
         ])
     }
 
+    function handleClickMoveSearch() {
+        window.scrollTo({
+            top: Number(topRef?.current?.offsetHeight),
+            behavior: 'smooth',
+        })
+    }
+
     return (
         <article ref={topRef}>
             <div className={styles.top}>
@@ -124,37 +186,28 @@ export default function HomeTop({ topRef }: Props) {
             <div className={styles.image_area}>
                 <div className={styles.wrap}>
                     <div className={styles.contents}>
-                        <div className={styles.flex}>
-                            <div className={styles.calc_width}>
-                                <div role="presentation">
-                                    <div className={styles.home_pins_container}>
-                                        {items.map((item, itemIdx) => {
-                                            return (
-                                                <div
-                                                    key={itemIdx}
-                                                    className={`${styles.all_pins} ${styles.none_active}`}
-                                                >
-                                                    <div className={styles.home_pin}>
-                                                        <div className={styles.box}>
-                                                            {/* <img role="img" src={image} alt="" /> */}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })}
-                                        {items[tabIdx].images.map((image, idx) => (
-                                            <div key={idx} className={`${styles.all_pins} ${styles.active}`}>
-                                                <div className={styles.home_pin}>
-                                                    <div className={styles.box}>
-                                                        <img role="img" src={image} alt="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                        {items[tabIdx].images.map((image, idx) => (
+                            <ImageArea key={idx} className={styles.image_wrap} index={idx}>
+                                <img role="img" src={image} alt="" />
+                            </ImageArea>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className={styles.next_arrow}>
+                <div className={styles.full_size}>
+                    <div className={styles.icon_wrap}>
+                        <button className={styles.btn} onClick={() => handleClickMoveSearch()}>
+                            <div className={styles.arrow} style={{ background: color }}>
+                                <ArrowDown width={20} height={20} />
                             </div>
-                        </div>
+                        </button>
+                    </div>
+                    <div className={styles.text_wrap}>
+                        <button className={styles.btn} onClick={() => handleClickMoveSearch()}>
+                            <span>방식은 다음과 같습니다</span>
+                            <ArrowDownSmall width={12} height={12} />
+                        </button>
                     </div>
                 </div>
             </div>
