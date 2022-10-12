@@ -34,7 +34,24 @@ const imageList = [
     image4,
     image3,
 ]
-const imageList2 = imageList.sort(() => Math.random() - 0.5)
+
+const imageList2 = [
+    image2,
+    image4,
+    image1,
+    image3,
+    image5,
+    image6,
+    image6,
+    image6,
+    image1,
+    image2,
+    image3,
+    image4,
+    image4,
+    image3,
+]
+
 const itemList = [
     {
         index: 1,
@@ -56,7 +73,7 @@ const itemList = [
     },
     {
         index: 4,
-        images: imageList,
+        images: imageList2,
         title: '정원 가꾸기 아이디어를 찾아보세요',
         active: false,
     },

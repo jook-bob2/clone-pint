@@ -53,5 +53,7 @@ module.exports = {
         'react/self-closing-comp': 0,
         'jsx-a11y/control-has-associated-label': 0,
         'no-plusplus': 0,
+        'react/jsx-curly-brace-presence': 0,
+        'jsx-a11y/label-has-associated-control': 0,
     },
 }
